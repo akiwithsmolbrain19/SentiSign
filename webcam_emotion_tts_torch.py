@@ -338,7 +338,9 @@ def main():
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     parser.add_argument("--camera", type=int, default=0)
     parser.add_argument("--duration", type=float, default=5.0)
-    parser.add_argument("--flip", action="store_true")
+    # Default behavior: flip is ON; allow opt-out with --no-flip
+    parser.add_argument("--flip", action="store_true", default=True)
+    parser.add_argument("--no-flip", dest="flip", action="store_false")
     parser.add_argument("--scale-factor", type=float, default=1.3)
     parser.add_argument("--min-neighbors", type=int, default=5)
     parser.add_argument("--min-size", type=int, default=0)
@@ -347,7 +349,9 @@ def main():
     parser.add_argument("--clahe-grid", type=int, default=8)
     parser.add_argument("--img-size", type=int, default=44, help="Input size for CNN (matches your preprocessing)")
     parser.add_argument("--linear-in-features", type=int, default=2048, help="Flattened features into final Linear")
-    parser.add_argument("--imagenet-norm", action="store_true", help="Apply ImageNet normalization (recommended)")
+    # Default behavior: imagenet norm ON; allow opt-out with --no-imagenet-norm
+    parser.add_argument("--imagenet-norm", action="store_true", default=True, help="Apply ImageNet normalization (recommended)")
+    parser.add_argument("--no-imagenet-norm", dest="imagenet_norm", action="store_false")
     parser.add_argument("--output-wav", type=Path, default=Path("parler_tts_out.wav"))
 
     args = parser.parse_args()

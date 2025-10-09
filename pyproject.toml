@@ -12,9 +12,4 @@ dependencies = [
     "torchvision>=0.23.0",
 ]
 
-[project.scripts]
-webcam_emotion_tts_torch = "webcam_emotion_tts_torch:main"
-webcam_emotion_torch = "webcam_emotion_torch:main"
 
-[tool.uv.sources]
-parler-tts = { git = "https://github.com/huggingface/parler-tts.git" }

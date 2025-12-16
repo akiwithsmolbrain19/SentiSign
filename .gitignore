@@ -52,3 +52,6 @@ htmlcov/
 # Temporary files
 *.tmp
 temp/
+
+# Datasets
+PHOENIX-2014-T-release-v3/
